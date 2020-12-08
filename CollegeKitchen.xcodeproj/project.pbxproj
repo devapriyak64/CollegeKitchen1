@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		889D3835545E18165A39B7FF /* Pods_CollegeKitchen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */; };
 		92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDA257FEF3700AD9124 /* Filter.swift */; };
 		92DE1DDF257FEFAB00AD9124 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */; };
 		92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */; };
@@ -23,6 +24,8 @@
 		92DE1DDA257FEF3700AD9124 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.release.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.release.xcconfig"; sourceTree = "<group>"; };
+		AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeKitchen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70FBADB257C786C00C99655 /* CollegeKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70FBADE257C786C00C99655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D70FBAE0257C786C00C99655 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		D70FBAEC257C786D00C99655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePopUpViewController.swift; sourceTree = "<group>"; };
 		D70FBAF7257C832200C99655 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.debug.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889D3835545E18165A39B7FF /* Pods_CollegeKitchen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63EC7E508AFF7564945F1A1D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */,
+				93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B3747F229404442F843C180C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D70FBAD2257C786C00C99655 = {
 			isa = PBXGroup;
 			children = (
 				D70FBADD257C786C00C99655 /* CollegeKitchen */,
 				D70FBADC257C786C00C99655 /* Products */,
+				63EC7E508AFF7564945F1A1D /* Pods */,
+				B3747F229404442F843C180C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D70FBAEF257C786D00C99655 /* Build configuration list for PBXNativeTarget "CollegeKitchen" */;
 			buildPhases = (
+				FDF65B1FFF7FBE7EA7836E9C /* [CP] Check Pods Manifest.lock */,
 				D70FBAD7257C786C00C99655 /* Sources */,
 				D70FBAD8257C786C00C99655 /* Frameworks */,
 				D70FBAD9257C786C00C99655 /* Resources */,
+				D80B0BC1E38DB700DC711033 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +169,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D80B0BC1E38DB700DC711033 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDF65B1FFF7FBE7EA7836E9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollegeKitchen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D70FBAD7257C786C00C99655 /* Sources */ = {
@@ -291,6 +360,7 @@
 		};
 		D70FBAF0257C786D00C99655 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		D70FBAF1257C786D00C99655 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
