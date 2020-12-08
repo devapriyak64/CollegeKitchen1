@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		D70FBAEB257C786D00C99655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */; };
 		D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */; };
 		D70FBAF8257C832200C99655 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF7257C832200C99655 /* Recipe.swift */; };
+		D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D714457825800EA900BC3F29 /* AddRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D70FBAEC257C786D00C99655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePopUpViewController.swift; sourceTree = "<group>"; };
 		D70FBAF7257C832200C99655 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D714457825800EA900BC3F29 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.debug.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +58,6 @@
 				DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */,
 				93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -97,6 +98,7 @@
 				92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */,
 				D70FBAF7257C832200C99655 /* Recipe.swift */,
 				D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */,
+				D714457825800EA900BC3F29 /* AddRecipeViewController.swift */,
 				D70FBAE7257C786D00C99655 /* Assets.xcassets */,
 				D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */,
 				D70FBAEC257C786D00C99655 /* Info.plist */,
@@ -217,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */,
 				D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */,
 				92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */,
 				D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */,

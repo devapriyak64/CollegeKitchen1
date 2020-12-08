@@ -19,6 +19,7 @@ class RecipePopUpViewController: UIViewController {
     var ingredientsList: UITextView!
     var stepsLabel: UILabel!
     var stepsList: UITextView!
+    // TODO: bottom navigation bar
     
     init(recipe: Recipe) {
         self.recipe = recipe
@@ -117,9 +118,8 @@ class RecipePopUpViewController: UIViewController {
     }
     
     func setUpConstraints() {
-//        let imageWidth: CGFloat = 375 // ???
         let imageHeight: CGFloat = 180
-        let labelHeight: CGFloat = 25
+        let labelHeight: CGFloat = 30
         let bigbuffer: CGFloat = 10
         let smallbuffer: CGFloat = 3
         
