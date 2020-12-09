@@ -11,6 +11,8 @@ class AddRecipeViewController: UIViewController {
 
     // TODO: make fields actually update recipe
     var image: UIImageView!
+    var nameLabel: UILabel!
+    var nameField: UITextField!
     // TODO: tags
     var descriptionLabel: UILabel!
     var descriptionField: UITextField!
@@ -18,6 +20,7 @@ class AddRecipeViewController: UIViewController {
     var ingredientsField: UITextField!
     var stepsLabel: UILabel!
     var stepsField: UITextField!
+    var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,26 @@ class AddRecipeViewController: UIViewController {
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         view.addSubview(image)
+        
+        nameLabel = UILabel()
+        nameLabel.text = "Enter a name"
+        nameLabel.textColor = .white
+        nameLabel.textAlignment = .left
+        nameLabel.font = UIFont.systemFont(ofSize: 20)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(nameLabel)
+        
+        nameField = UITextField()
+        nameField.text = "  Start typing..."
+        nameField.layer.cornerRadius = 15.0
+        nameField.layer.borderColor = UIColor.white.cgColor
+        nameField.layer.borderWidth = 1
+        nameField.backgroundColor = .black
+        nameField.textColor = .lightGray
+        nameField.textAlignment = .left
+        nameField.clearsOnBeginEditing = true
+        nameField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(nameField)
         
         descriptionLabel = UILabel()
         descriptionLabel.text = "Write a short description"
@@ -93,6 +116,16 @@ class AddRecipeViewController: UIViewController {
         stepsField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stepsField)
         
+        submitButton = UIButton()
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        submitButton.setTitle("  Save  ", for: .normal)
+        submitButton.backgroundColor = .black
+        submitButton.setTitleColor(.white, for: .normal)
+        submitButton.layer.borderColor = UIColor.white.cgColor
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.cornerRadius = 15.0
+        view.addSubview(submitButton)
+        
         setUpConstraints()
     }
     
@@ -111,7 +144,20 @@ class AddRecipeViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo:image.bottomAnchor, constant: bigbuffer), descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            nameLabel.topAnchor.constraint(equalTo:image.bottomAnchor, constant: bigbuffer), nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            nameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            nameLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
+            nameField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: smallbuffer),
+            nameField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            nameField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            nameField.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo:nameField.bottomAnchor, constant: bigbuffer), descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
             descriptionLabel.heightAnchor.constraint(equalToConstant: labelHeight)
         ])
@@ -149,6 +195,12 @@ class AddRecipeViewController: UIViewController {
             stepsField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             stepsField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
             stepsField.heightAnchor.constraint(equalToConstant: fieldHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
+            submitButton.topAnchor.constraint(equalTo: stepsField.bottomAnchor, constant: bigbuffer),
+            submitButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            submitButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 
