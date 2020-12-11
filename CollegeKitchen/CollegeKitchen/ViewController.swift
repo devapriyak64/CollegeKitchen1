@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     var addRecipeButton: UIButton!
     var profileButton: UIButton!
 
+    var trendingButton: UIButton!
+    var followingButton: UIButton!
+    
     var recipes: [Recipe]!
     var filters: [Filter]!
 
@@ -35,21 +38,13 @@ class ViewController: UIViewController {
         recipes = [pestopasta, oatmeal, guac]
         filters = [Filter(name: "$"), Filter(name: "$$"), Filter(name: "$$$"), Filter(name: "Easy"), Filter(name: "Medium"), Filter(name: "Difficult")]
 
-        view.backgroundColor = .lightGray
-//        pushNavViewControllerButton = UIButton()
-//        pushNavViewControllerButton.translatesAutoresizingMaskIntoConstraints = false
-//        pushNavViewControllerButton.setTitle("Red Square Arena", for: .normal)
-//        pushNavViewControllerButton.setTitleColor(.red, for: .normal)
-//        pushNavViewControllerButton.backgroundColor = .white
-//        pushNavViewControllerButton.layer.cornerRadius = 4
-//        pushNavViewControllerButton.addTarget(self, action: #selector(pushNavViewController), for: .touchUpInside)
-//        view.addSubview(pushNavViewControllerButton)
+        view.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
 
         homeButton = UIButton()
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.setTitle("Home", for: .normal)
+        //homeButton.setTitle("Home", for: .normal)
         homeButton.setTitleColor(.red, for: .normal)
-        homeButton.backgroundColor = .white
+        //homeButton.backgroundColor = .white
         homeButton.addTarget(self, action: #selector(pushHomeViewController), for: .touchUpInside)
         view.addSubview(homeButton)
 
@@ -57,7 +52,6 @@ class ViewController: UIViewController {
         addRecipeButton.translatesAutoresizingMaskIntoConstraints = false
         addRecipeButton.setTitle("Add Recipe", for: .normal)
         addRecipeButton.setTitleColor(.red, for: .normal)
-        addRecipeButton.backgroundColor = .white
         addRecipeButton.addTarget(self, action: #selector(presentAddRecipeViewController), for: .touchUpInside)
         view.addSubview(addRecipeButton)
 
@@ -65,9 +59,35 @@ class ViewController: UIViewController {
         profileButton.translatesAutoresizingMaskIntoConstraints = false
         profileButton.setTitle("Profile", for: .normal)
         profileButton.setTitleColor(.red, for: .normal)
-        profileButton.backgroundColor = .white
         profileButton.addTarget(self, action: #selector(pushProfileViewController), for: .touchUpInside)
         view.addSubview(profileButton)
+        
+        resetButtons()
+        
+        trendingButton = UIButton()
+        trendingButton.translatesAutoresizingMaskIntoConstraints = false
+        trendingButton.setTitle("Trending", for: .normal)
+        trendingButton.setTitleColor(.black, for: .normal)
+        //trendingButton.backgroundColor = .white
+        trendingButton.addTarget(self, action: #selector(showTrendingRecipes), for: .touchUpInside)
+        trendingButton.snp.makeConstraints { make in
+            make.width.equalTo(180)
+        }
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: trendingButton)
+        
+        followingButton = UIButton()
+        followingButton.translatesAutoresizingMaskIntoConstraints = false
+        followingButton.setTitle("Following", for: .normal)
+        followingButton.setTitleColor(.black, for: .normal)
+        //followingButton.backgroundColor = .white
+        followingButton.addTarget(self, action: #selector(showFollowingRecipes), for: .touchUpInside)
+        
+        followingButton.snp.makeConstraints { make in
+            make.width.equalTo(180)
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: followingButton)
+        
 
         let recipeLayout = UICollectionViewFlowLayout()
         recipeLayout.minimumInteritemSpacing = recipePadding
@@ -80,6 +100,7 @@ class ViewController: UIViewController {
         recipeCollectionView.dataSource = self
         recipeCollectionView.delegate = self
         recipeCollectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: recipeReuseIdentifier)
+        recipeCollectionView.contentInset = UIEdgeInsets(top: recipePadding, left: 0, bottom: recipePadding, right: 0);
         view.addSubview(recipeCollectionView)
 
         let filterLayout = UICollectionViewFlowLayout()
@@ -88,11 +109,12 @@ class ViewController: UIViewController {
         filterLayout.scrollDirection = .horizontal
 
         filterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: filterLayout)
-        filterCollectionView.backgroundColor = .green
+        filterCollectionView.backgroundColor = .lightGray
         filterCollectionView.translatesAutoresizingMaskIntoConstraints = false
         filterCollectionView.dataSource = self
         filterCollectionView.delegate = self
         filterCollectionView.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: filterReuseIdentifier)
+        filterCollectionView.contentInset = UIEdgeInsets(top: 0, left: filterPadding, bottom: 0, right: filterPadding);
         view.addSubview(filterCollectionView)
 
 
@@ -106,39 +128,71 @@ class ViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-100)
         }
         filterCollectionView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(filterPadding)
+            make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(100)
+            let navBarHeight = UIApplication.shared.statusBarFrame.size.height +
+                     (navigationController?.navigationBar.frame.height ?? 100.0)
+            print(navBarHeight)
+            make.top.equalToSuperview().offset(navBarHeight)
             make.height.equalTo(50)
         }
 
         homeButton.snp.makeConstraints { make in
             make.top.equalTo(addRecipeButton.snp.top)
+            make.centerX.equalTo(view.frame.width/5)
             make.centerY.equalTo(addRecipeButton.snp.centerY)
-            //make.centerXWithinMargins(view.snp.leading, addRecipeButton.snp.leading)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
         }
         addRecipeButton.snp.makeConstraints { make in
-            make.top.equalTo(recipeCollectionView.snp.bottom)
+            make.top.equalTo(recipeCollectionView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-50)
+            make.width.equalTo(40)
+            make.height.equalTo(30)
         }
         profileButton.snp.makeConstraints { make in
             make.top.equalTo(addRecipeButton.snp.top)
+            make.centerX.equalTo(view.frame.width * 4/5)
             make.centerY.equalTo(addRecipeButton.snp.centerY)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
 
         }
     }
+    func resetButtons() {
+        navigationController?.navigationBar.barTintColor = UIColor.lightGray
+        let addRecipeButtonImage = UIImage(named: "plus_black")
+        addRecipeButton.setImage(addRecipeButtonImage , for: .normal)
+        let profileButtonImage = UIImage(named: "profile_black")
+        profileButton.setImage(profileButtonImage , for: .normal)
+        let homeButtonImage = UIImage(named: "home_black")
+        homeButton.setImage(homeButtonImage , for: .normal)
+    }
     
     @objc func presentAddRecipeViewController() {
+        resetButtons()
+        let addRecipeButtonImage = UIImage(named: "plus_white")
+        addRecipeButton.setImage(addRecipeButtonImage , for: .normal)
         let vc = AddRecipeViewController()
         // vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func pushHomeViewController() {
-
+        resetButtons()
+        let homeButtonImage = UIImage(named: "home_white")
+        homeButton.setImage(homeButtonImage , for: .normal)
     }
     @objc func pushProfileViewController() {
-
+        resetButtons()
+        let profileButtonImage = UIImage(named: "profile_white")
+        profileButton.setImage(profileButtonImage , for: .normal)
+    }
+    @objc func showTrendingRecipes() {
+        print("trending")
+    }
+    @objc func showFollowingRecipes() {
+        print("following")
     }
 
 
@@ -146,7 +200,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recipeCollectionView {
-            return 10
+            return recipes.count
         } else {
             return filters.count
         }
