@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		889D3835545E18165A39B7FF /* Pods_CollegeKitchen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */; };
+		92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDA257FEF3700AD9124 /* Filter.swift */; };
+		92DE1DDF257FEFAB00AD9124 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */; };
+		92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */; };
+		D70FBADF257C786C00C99655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBADE257C786C00C99655 /* AppDelegate.swift */; };
+		D70FBAE1257C786C00C99655 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAE0257C786C00C99655 /* SceneDelegate.swift */; };
+		D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAE2257C786C00C99655 /* ViewController.swift */; };
+		D70FBAE8257C786D00C99655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE7257C786D00C99655 /* Assets.xcassets */; };
+		D70FBAEB257C786D00C99655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */; };
+		D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */; };
+		D70FBAF8257C832200C99655 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF7257C832200C99655 /* Recipe.swift */; };
+		D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D714457825800EA900BC3F29 /* AddRecipeViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		92DE1DDA257FEF3700AD9124 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.release.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.release.xcconfig"; sourceTree = "<group>"; };
+		AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeKitchen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70FBADB257C786C00C99655 /* CollegeKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70FBADE257C786C00C99655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D70FBAE0257C786C00C99655 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D70FBAE2257C786C00C99655 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D70FBAE7257C786D00C99655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D70FBAEA257C786D00C99655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D70FBAEC257C786D00C99655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePopUpViewController.swift; sourceTree = "<group>"; };
+		D70FBAF7257C832200C99655 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D714457825800EA900BC3F29 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
+		DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.debug.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D70FBAD8257C786C00C99655 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				889D3835545E18165A39B7FF /* Pods_CollegeKitchen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63EC7E508AFF7564945F1A1D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */,
+				93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B3747F229404442F843C180C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D70FBAD2257C786C00C99655 = {
+			isa = PBXGroup;
+			children = (
+				D70FBADD257C786C00C99655 /* CollegeKitchen */,
+				D70FBADC257C786C00C99655 /* Products */,
+				63EC7E508AFF7564945F1A1D /* Pods */,
+				B3747F229404442F843C180C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D70FBADC257C786C00C99655 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D70FBADB257C786C00C99655 /* CollegeKitchen.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D70FBADD257C786C00C99655 /* CollegeKitchen */ = {
+			isa = PBXGroup;
+			children = (
+				D70FBADE257C786C00C99655 /* AppDelegate.swift */,
+				92DE1DDA257FEF3700AD9124 /* Filter.swift */,
+				D70FBAE0257C786C00C99655 /* SceneDelegate.swift */,
+				D70FBAE2257C786C00C99655 /* ViewController.swift */,
+				92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */,
+				92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */,
+				D70FBAF7257C832200C99655 /* Recipe.swift */,
+				D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */,
+				D714457825800EA900BC3F29 /* AddRecipeViewController.swift */,
+				D70FBAE7257C786D00C99655 /* Assets.xcassets */,
+				D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */,
+				D70FBAEC257C786D00C99655 /* Info.plist */,
+			);
+			path = CollegeKitchen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D70FBADA257C786C00C99655 /* CollegeKitchen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D70FBAEF257C786D00C99655 /* Build configuration list for PBXNativeTarget "CollegeKitchen" */;
+			buildPhases = (
+				FDF65B1FFF7FBE7EA7836E9C /* [CP] Check Pods Manifest.lock */,
+				D70FBAD7257C786C00C99655 /* Sources */,
+				D70FBAD8257C786C00C99655 /* Frameworks */,
+				D70FBAD9257C786C00C99655 /* Resources */,
+				D80B0BC1E38DB700DC711033 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollegeKitchen;
+			productName = CollegeKitchen;
+			productReference = D70FBADB257C786C00C99655 /* CollegeKitchen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D70FBAD3257C786C00C99655 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					D70FBADA257C786C00C99655 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = D70FBAD6257C786C00C99655 /* Build configuration list for PBXProject "CollegeKitchen" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D70FBAD2257C786C00C99655;
+			productRefGroup = D70FBADC257C786C00C99655 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D70FBADA257C786C00C99655 /* CollegeKitchen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D70FBAD9257C786C00C99655 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D70FBAEB257C786D00C99655 /* LaunchScreen.storyboard in Resources */,
+				D70FBAE8257C786D00C99655 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D80B0BC1E38DB700DC711033 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDF65B1FFF7FBE7EA7836E9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollegeKitchen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D70FBAD7257C786C00C99655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */,
+				D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */,
+				92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */,
+				D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */,
+				D70FBADF257C786C00C99655 /* AppDelegate.swift in Sources */,
+				92DE1DDF257FEFAB00AD9124 /* RecipeCollectionViewCell.swift in Sources */,
+				D70FBAE1257C786C00C99655 /* SceneDelegate.swift in Sources */,
+				92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */,
+				D70FBAF8257C832200C99655 /* Recipe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D70FBAEA257C786D00C99655 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D70FBAED257C786D00C99655 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D70FBAEE257C786D00C99655 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D70FBAF0257C786D00C99655 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S5254CD979;
+				INFOPLIST_FILE = CollegeKitchen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jaden.CollegeKitchen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D70FBAF1257C786D00C99655 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93B302F8636F3E75FC00AC2E /* Pods-CollegeKitchen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S5254CD979;
+				INFOPLIST_FILE = CollegeKitchen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jaden.CollegeKitchen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D70FBAD6257C786C00C99655 /* Build configuration list for PBXProject "CollegeKitchen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70FBAED257C786D00C99655 /* Debug */,
+				D70FBAEE257C786D00C99655 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D70FBAEF257C786D00C99655 /* Build configuration list for PBXNativeTarget "CollegeKitchen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70FBAF0257C786D00C99655 /* Debug */,
+				D70FBAF1257C786D00C99655 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D70FBAD3257C786C00C99655 /* Project object */;
+}
