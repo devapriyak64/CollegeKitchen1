@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		889D3835545E18165A39B7FF /* Pods_CollegeKitchen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F36A6A5BF9DB4713C8867 /* Pods_CollegeKitchen.framework */; };
+		92B9736A25867BFD003EFA1F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9736925867BFD003EFA1F /* NetworkManager.swift */; };
+		92B9736D25867D4B003EFA1F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9736C25867D4B003EFA1F /* Models.swift */; };
 		92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDA257FEF3700AD9124 /* Filter.swift */; };
 		92DE1DDF257FEFAB00AD9124 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */; };
 		92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92B9736925867BFD003EFA1F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		92B9736C25867D4B003EFA1F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		92DE1DDA257FEF3700AD9124 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				D792F5DD25858925005CBB3F /* OtherProfileViewController.swift */,
 				D714457825800EA900BC3F29 /* AddRecipeViewController.swift */,
 				D792F5D725855E9E005CBB3F /* PersonalProfileViewController.swift */,
+				92B9736925867BFD003EFA1F /* NetworkManager.swift */,
+				92B9736C25867D4B003EFA1F /* Models.swift */,
 				D70FBAE7257C786D00C99655 /* Assets.xcassets */,
 				D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */,
 				D70FBAEC257C786D00C99655 /* Info.plist */,
@@ -237,7 +243,9 @@
 				D792F5D825855E9E005CBB3F /* PersonalProfileViewController.swift in Sources */,
 				D70FBAE1257C786C00C99655 /* SceneDelegate.swift in Sources */,
 				92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */,
+				92B9736D25867D4B003EFA1F /* Models.swift in Sources */,
 				D70FBAF8257C832200C99655 /* Recipe.swift in Sources */,
+				92B9736A25867BFD003EFA1F /* NetworkManager.swift in Sources */,
 				D792F5DE25858925005CBB3F /* OtherProfileViewController.swift in Sources */,
 				D792F5DB2585687B005CBB3F /* User.swift in Sources */,
 			);

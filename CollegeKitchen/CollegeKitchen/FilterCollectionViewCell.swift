@@ -37,8 +37,12 @@ class FilterCollectionViewCell: UICollectionViewCell {
         addShadow()
         if filter.didSelect == true {
             //contentView.backgroundColor = UIColor(red: 242 / 255, green: 147 / 255, blue: 145 / 255, alpha: 1)
+            contentView.backgroundColor = .black
+            filterLabel.textColor = .white
         } else {
             //contentView.backgroundColor = UIColor(red: 255 / 255, green: 210 / 255, blue: 209 / 255, alpha: 1)
+            contentView.backgroundColor = .white
+            filterLabel.textColor = .black
         }
         
     }
