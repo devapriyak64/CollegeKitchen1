@@ -9,11 +9,11 @@ import UIKit
 
 class AddRecipeViewController: UIViewController {
 
-    // TODO: make fields actually update recipe
+    // TODO: make fields actually create new recipe (networking)
     var image: UIImageView!
     var nameLabel: UILabel!
     var nameField: UITextField!
-    // TODO: tags
+    // TODO: filters
     var descriptionLabel: UILabel!
     var descriptionField: UITextField!
     var ingredientsLabel: UILabel!
@@ -24,9 +24,7 @@ class AddRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        view.backgroundColor = .white
         
         image = UIImageView()
         // TODO: change this picture to a upload picture field
@@ -38,18 +36,18 @@ class AddRecipeViewController: UIViewController {
         
         nameLabel = UILabel()
         nameLabel.text = "Enter a name"
-        nameLabel.textColor = .white
+        nameLabel.textColor = .black
         nameLabel.textAlignment = .left
-        nameLabel.font = UIFont.systemFont(ofSize: 20)
+        nameLabel.font = UIFont.systemFont(ofSize: 18)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameLabel)
         
         nameField = UITextField()
         nameField.text = "  Start typing..."
         nameField.layer.cornerRadius = 15.0
-        nameField.layer.borderColor = UIColor.white.cgColor
+        nameField.layer.borderColor = UIColor.black.cgColor
         nameField.layer.borderWidth = 1
-        nameField.backgroundColor = .black
+        nameField.backgroundColor = .white
         nameField.textColor = .lightGray
         nameField.textAlignment = .left
         nameField.clearsOnBeginEditing = true
@@ -58,18 +56,18 @@ class AddRecipeViewController: UIViewController {
         
         descriptionLabel = UILabel()
         descriptionLabel.text = "Write a short description"
-        descriptionLabel.textColor = .white
+        descriptionLabel.textColor = .black
         descriptionLabel.textAlignment = .left
-        descriptionLabel.font = UIFont.systemFont(ofSize: 20)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 18)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(descriptionLabel)
         
         descriptionField = UITextField()
         descriptionField.text = "  Start typing..."
         descriptionField.layer.cornerRadius = 15.0
-        descriptionField.layer.borderColor = UIColor.white.cgColor
+        descriptionField.layer.borderColor = UIColor.black.cgColor
         descriptionField.layer.borderWidth = 1
-        descriptionField.backgroundColor = .black
+        descriptionField.backgroundColor = .white
         descriptionField.textColor = .lightGray
         descriptionField.textAlignment = .left
         descriptionField.clearsOnBeginEditing = true
@@ -78,18 +76,18 @@ class AddRecipeViewController: UIViewController {
         
         ingredientsLabel = UILabel()
         ingredientsLabel.text = "List the ingredients"
-        ingredientsLabel.textColor = .white
+        ingredientsLabel.textColor = .black
         ingredientsLabel.textAlignment = .left
-        ingredientsLabel.font = UIFont.systemFont(ofSize: 20)
+        ingredientsLabel.font = UIFont.systemFont(ofSize: 18)
         ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ingredientsLabel)
         
         ingredientsField = UITextField()
         ingredientsField.text = "  Start typing..."
         ingredientsField.layer.cornerRadius = 15.0
-        ingredientsField.layer.borderColor = UIColor.white.cgColor
+        ingredientsField.layer.borderColor = UIColor.black.cgColor
         ingredientsField.layer.borderWidth = 1
-        ingredientsField.backgroundColor = .black
+        ingredientsField.backgroundColor = .white
         ingredientsField.textColor = .lightGray
         ingredientsField.textAlignment = .left
         ingredientsField.clearsOnBeginEditing = true
@@ -98,7 +96,7 @@ class AddRecipeViewController: UIViewController {
         
         stepsLabel = UILabel()
         stepsLabel.text = "Write out the steps"
-        stepsLabel.textColor = .white
+        stepsLabel.textColor = .black
         stepsLabel.textAlignment = .left
         stepsLabel.font = UIFont.systemFont(ofSize: 20)
         stepsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -107,9 +105,9 @@ class AddRecipeViewController: UIViewController {
         stepsField = UITextField()
         stepsField.text = "  Start typing..."
         stepsField.layer.cornerRadius = 15.0
-        stepsField.layer.borderColor = UIColor.white.cgColor
+        stepsField.layer.borderColor = UIColor.black.cgColor
         stepsField.layer.borderWidth = 1
-        stepsField.backgroundColor = .black
+        stepsField.backgroundColor = .white
         stepsField.textColor = .lightGray
         stepsField.textAlignment = .left
         stepsField.clearsOnBeginEditing = true
@@ -119,9 +117,9 @@ class AddRecipeViewController: UIViewController {
         submitButton = UIButton()
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.setTitle("  Save  ", for: .normal)
-        submitButton.backgroundColor = .black
+        submitButton.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.layer.borderColor = UIColor.white.cgColor
+        submitButton.layer.borderColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00).cgColor
         submitButton.layer.borderWidth = 1
         submitButton.layer.cornerRadius = 15.0
         view.addSubview(submitButton)
@@ -131,10 +129,10 @@ class AddRecipeViewController: UIViewController {
     
     func setUpConstraints() {
         let imageHeight: CGFloat = 180
-        let labelHeight: CGFloat = 30
+        let labelHeight: CGFloat = 21
         let bigbuffer: CGFloat = 10
         let smallbuffer: CGFloat = 3
-        let fieldHeight: CGFloat = 100
+        let fieldHeight: CGFloat = 90
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor),

@@ -32,9 +32,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // TODO: Hard coded recipes are temporary, this should be replaced by networked recipes later
-        let pestopasta = Recipe(image: UIImage(named: "pestopasta.jpg")!, recipeTitle: "Pesto Pasta", username: "Jeremy Scheck", shortDescription: "Anyone can make a Pesto Pasta, but not everyone knows how to make a pesto pasta that’s slick with plenty of pesto sauce without adding tons of extra oil! Here’s how I make it.", ingredients: "- Onion\n- Pesto\n- Olive Oil\n- Ziti\n - Parmesan\n- Salt\n- Pepper", steps: "1. Bring a pot of lightly salted water to a rolling boil; cook the fettuccini at a boil until cooked through yet firm to the bite, about 8 minutes; drain. Transfer the fettuccini to a bowl.\n2. Melt the butter in a saucepan over medium heat. Cook the garlic and pesto in the melted butter until warmed, 2 to 3 minutes; pour over the fettuccini and toss to coat.\n3. Season to taste using salt and pepper.")
-        let oatmeal = Recipe(image: UIImage(named: "oatmeal.jpg")!, recipeTitle: "Overnight Oats", username: "Joe Shmoe", shortDescription: "Overnight oats are a simple no-cook way of making oatmeal by soaking oats in milk for several hours (usually overnight). You can either eat them cold straight from the jar, or heat them up to achieve something similar to freshly cooked oatmeal.", ingredients: "- Rolled Oats\n-Milk of your choice\n- Fruit, Raisins, Yogurt, etc.", steps: "1. Take a glass or a bowl and add a serving of old fashioned rolled oats.\n2. Fill up the glass with liquid until the oats are well covered.\n3. Add your favorite toppings.")
-        let guac = Recipe(image: UIImage(named: "guac.jpeg")!, recipeTitle: "Dorm Room Guac", username: "Walker White", shortDescription: "Make a bowl of guac in less than 10 minutes with items you probably already have in your dorm room!", ingredients: "- Avocado\n- Salt\n- Pepper\n- Lime Juice\n- Tomato", steps: "1. Scoop out the inside of the avocado and chop until smooth.\n2. Add salt, pepper, and lime juice.\n4. Chop tomato into small pieces and add to mixture.\n4. Mix with a spoon and serve!")
+        let pestopasta = Recipe(image: UIImage(named: "pestopasta.jpg")!, recipeTitle: "Pesto Pasta", username: "Jeremy Scheck", shortDescription: "Anyone can make a Pesto Pasta, but not everyone knows how to make a pesto pasta that’s slick with plenty of pesto sauce without adding tons of extra oil! Here’s how I make it.", ingredients: "- Onion\n- Pesto\n- Olive Oil\n- Ziti\n- Parmesan\n- Salt\n- Pepper", steps: "1. Bring a pot of lightly salted water to a rolling boil; cook the fettuccini at a boil until cooked through yet firm to the bite, about 8 minutes; drain. Transfer the fettuccini to a bowl.\n2. Melt the butter in a saucepan over medium heat. Cook the garlic and pesto in the melted butter until warmed, 2 to 3 minutes; pour over the fettuccini and toss to coat.\n3. Season to taste using salt and pepper.")
+        let oatmeal = Recipe(image: UIImage(named: "oatmeal.jpg")!, recipeTitle: "Overnight Oats", username: "Joe Shmoe", shortDescription: "Overnight oats are a simple no-cook way of making oatmeal by soaking oats in milk for several hours (usually overnight). You can either eat them cold straight from the jar, or heat them up to achieve something similar to freshly cooked oatmeal.", ingredients: "- Rolled Oats\n- Milk of your choice\n- Fruit, Raisins, Yogurt, etc.", steps: "1. Take a glass or a bowl and add a serving of old fashioned rolled oats.\n2. Fill up the glass with liquid until the oats are well covered.\n3. Add your favorite toppings.")
+        let guac = Recipe(image: UIImage(named: "guac.jpeg")!, recipeTitle: "Dorm Room Guac", username: "Gordon Ramsay", shortDescription: "Make a bowl of guac in less than 10 minutes with items you probably already have in your dorm room!", ingredients: "- Avocado\n- Salt\n- Pepper\n- Lime Juice\n- Tomato", steps: "1. Scoop out the inside of the avocado and chop until smooth.\n2. Add salt, pepper, and lime juice.\n4. Chop tomato into small pieces and add to mixture.\n4. Mix with a spoon and serve!")
         recipes = [pestopasta, oatmeal, guac]
         filters = [Filter(name: "$"), Filter(name: "$$"), Filter(name: "$$$"), Filter(name: "Easy"), Filter(name: "Medium"), Filter(name: "Difficult")]
 
@@ -187,6 +187,11 @@ class ViewController: UIViewController {
         resetButtons()
         let profileButtonImage = UIImage(named: "profile_white")
         profileButton.setImage(profileButtonImage , for: .normal)
+        // temporary user, will be replaced by networked information
+        let guac = Recipe(image: UIImage(named: "guac.jpeg")!, recipeTitle: "Dorm Room Guac", username: "Gordon Ramsay", shortDescription: "Make a bowl of guac in less than 10 minutes with items you probably already have in your dorm room!", ingredients: "- Avocado\n- Salt\n- Pepper\n- Lime Juice\n- Tomato", steps: "1. Scoop out the inside of the avocado and chop until smooth.\n2. Add salt, pepper, and lime juice.\n4. Chop tomato into small pieces and add to mixture.\n4. Mix with a spoon and serve!")
+        let user1 = User(user_id: "123", username: "gordonramsey", password: "password", user_pic: UIImage(named: "gordon.jpeg")!, user_bio: "Multi-Michelin starred chef. Star of the small screen. Owner of successful restaurants across the globe.", user_posts: [guac], followers: [], following: [])
+        let vc = PersonalProfileViewController(user: user1)
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc func showTrendingRecipes() {
         print("trending")
@@ -247,7 +252,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recipeCollectionView {
-            // TODO: this causes an error if you choose a cell without recipe
             let recipe = recipes[indexPath.row]
             let vc = RecipePopUpViewController(recipe: recipe)
             navigationController?.pushViewController(vc, animated: true)
@@ -257,6 +261,9 @@ extension ViewController: UICollectionViewDelegate {
         recipeCollectionView.reloadData()
         filterCollectionView.reloadData()
     }
+    
+
 }
+
 
 

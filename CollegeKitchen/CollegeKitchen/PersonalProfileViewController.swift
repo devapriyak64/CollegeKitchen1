@@ -1,0 +1,168 @@
+//
+//  PersonalProfileViewController.swift
+//  CollegeKitchen
+//
+//  Created by Jaden O'Brien on 12/12/20.
+//
+
+import UIKit
+
+class PersonalProfileViewController: UIViewController {
+    
+    // TODO: make sure this conforms to backend
+    // TODO: friends button that brings up list of friends
+    var user: User!
+    var profilePicture: UIImageView!
+    var bio: UITextView!
+    var username: UILabel!
+    var friendsButton: UIButton!
+    var recipeCollectionView: UICollectionView!
+    let recipeReuseIdentifier = "recipeReuseIdentifier"
+    let recipePadding: CGFloat = 15
+    
+    init(user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
+        
+        profilePicture = UIImageView()
+        profilePicture.image = user.user_pic
+        profilePicture.translatesAutoresizingMaskIntoConstraints = false
+        profilePicture.contentMode = .scaleAspectFill
+        profilePicture.clipsToBounds = true
+        view.addSubview(profilePicture)
+        
+        bio = UITextView()
+        bio.text = user.user_bio
+        bio.textColor = .black
+        bio.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
+        bio.textAlignment = .left
+        bio.isEditable = false
+        bio.isSelectable = false
+        bio.font = UIFont.systemFont(ofSize: 14)
+        bio.translatesAutoresizingMaskIntoConstraints = false
+        bio.isScrollEnabled = true
+        bio.showsVerticalScrollIndicator = true
+        view.addSubview(bio)
+        
+        username = UILabel()
+        username.text = "@"+user.username
+        username.textColor = .black
+        username.textAlignment = .right
+        username.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        username.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(username)
+        
+        friendsButton = UIButton()
+        friendsButton.translatesAutoresizingMaskIntoConstraints = false
+        friendsButton.setTitle("Your Friends", for: .normal)
+        friendsButton.setTitleColor(.black, for: .normal)
+        friendsButton.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
+        friendsButton.addTarget(self, action: #selector(pushFriends), for: .touchUpInside)
+        friendsButton.layer.borderColor = UIColor.black.cgColor
+        friendsButton.layer.borderWidth = 1
+        friendsButton.layer.cornerRadius = 15.0
+        view.addSubview(friendsButton)
+        
+        let recipeLayout = UICollectionViewFlowLayout()
+        recipeLayout.minimumInteritemSpacing = recipePadding
+        recipeLayout.minimumLineSpacing = recipePadding
+        recipeLayout.scrollDirection = .vertical
+        
+        recipeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: recipeLayout)
+        recipeCollectionView.backgroundColor = .white
+        recipeCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        recipeCollectionView.dataSource = self
+        recipeCollectionView.delegate = self
+        recipeCollectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: recipeReuseIdentifier)
+        recipeCollectionView.contentInset = UIEdgeInsets(top: recipePadding, left: 0, bottom: recipePadding, right: 0);
+        view.addSubview(recipeCollectionView)
+
+ 
+        setupConstraints()
+    }
+
+    @objc func pushFriends() {
+        print("Friends pushed") // TODO: make this pull up a list of friends
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            profilePicture.heightAnchor.constraint(equalToConstant: 80),
+            profilePicture.widthAnchor.constraint(equalToConstant: 80),
+            profilePicture.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            profilePicture.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bio.centerYAnchor.constraint(equalTo: profilePicture.centerYAnchor),
+            bio.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            bio.trailingAnchor.constraint(equalTo: profilePicture.leadingAnchor, constant: -20),
+            bio.heightAnchor.constraint(equalToConstant: 75)
+        ])
+        
+        NSLayoutConstraint.activate([
+            username.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 10),
+            username.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -21),
+            username.widthAnchor.constraint(equalToConstant: 200)//username.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21)
+        ])
+        
+        NSLayoutConstraint.activate([
+            recipeCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            recipeCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            recipeCollectionView.topAnchor
+                .constraint(equalTo: username.bottomAnchor, constant: 10),
+            recipeCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            friendsButton.centerXAnchor.constraint(equalTo: bio.centerXAnchor),
+            friendsButton.widthAnchor.constraint(equalToConstant: 120),
+            friendsButton.topAnchor.constraint(equalTo: bio.bottomAnchor, constant: 10),
+            friendsButton.bottomAnchor.constraint(equalTo: recipeCollectionView.topAnchor, constant: -10)
+        ])
+    }
+}
+extension PersonalProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return user.user_posts.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: recipeReuseIdentifier, for: indexPath) as! RecipeCollectionViewCell
+            cell.configure()
+            return cell
+        }
+
+    }
+
+extension PersonalProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let width = collectionView.frame.width - 2 * recipePadding
+            let height = collectionView.frame.height/4
+            return CGSize(width: width, height: height)
+    }
+
+}
+
+extension PersonalProfileViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let recipe = user.user_posts[indexPath.row]
+            let vc = RecipePopUpViewController(recipe: recipe)
+            navigationController?.pushViewController(vc, animated: true)
+        recipeCollectionView.reloadData()
+    }
+    
+
+}
+
+
+

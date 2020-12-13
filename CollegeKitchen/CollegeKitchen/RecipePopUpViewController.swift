@@ -9,9 +9,10 @@ import UIKit
 
 class RecipePopUpViewController: UIViewController {
     
+    // TODO: conform to networked Recipe
     var recipe: Recipe
     var image: UIImageView!
-//    var filters: UICollectionView TODO
+    // var filters: UICollectionView TODO (make these pink to match theme)
     var recipeTitle: UILabel!
     var username: UILabel!
     var shortDescription: UITextView!
@@ -19,7 +20,7 @@ class RecipePopUpViewController: UIViewController {
     var ingredientsList: UITextView!
     var stepsLabel: UILabel!
     var stepsList: UITextView!
-    // TODO: bottom navigation bar
+    // TODO: bottom navigation bar ??? does this make sense to have in all screens?
     
     init(recipe: Recipe) {
         self.recipe = recipe
@@ -32,9 +33,7 @@ class RecipePopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        view.backgroundColor = .white
         
         image = UIImageView()
         image.image = recipe.image
@@ -45,28 +44,32 @@ class RecipePopUpViewController: UIViewController {
         
         recipeTitle = UILabel()
         recipeTitle.text = recipe.recipeTitle
-        recipeTitle.textColor = .white
+        recipeTitle.textColor = .black
         recipeTitle.textAlignment = .left
-        recipeTitle.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        recipeTitle.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         recipeTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recipeTitle)
         
         username = UILabel()
         username.text = recipe.username
-        username.textColor = .white
+        username.textColor = .black
         username.textAlignment = .left
-        username.font = UIFont.systemFont(ofSize: 20)
+        username.font = UIFont.systemFont(ofSize: 16)
         username.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(username)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(RecipePopUpViewController.tapFunction))
+                username.isUserInteractionEnabled = true
+                username.addGestureRecognizer(tap)
+        
         shortDescription = UITextView()
         shortDescription.text = recipe.shortDescription
-        shortDescription.textColor = .lightGray
-        shortDescription.backgroundColor = .black
+        shortDescription.textColor = .black
+        shortDescription.backgroundColor = .white
         shortDescription.textAlignment = .left
         shortDescription.isEditable = false
         shortDescription.isSelectable = false
-        shortDescription.font = UIFont.systemFont(ofSize: 18)
+        shortDescription.font = UIFont.systemFont(ofSize: 14)
         shortDescription.translatesAutoresizingMaskIntoConstraints = false
         shortDescription.isScrollEnabled = true
         shortDescription.showsVerticalScrollIndicator = true
@@ -74,20 +77,20 @@ class RecipePopUpViewController: UIViewController {
         
         ingredientsLabel = UILabel()
         ingredientsLabel.text = "Ingredients"
-        ingredientsLabel.textColor = .white
+        ingredientsLabel.textColor = .black
         ingredientsLabel.textAlignment = .left
-        ingredientsLabel.font = UIFont.systemFont(ofSize: 20)
+        ingredientsLabel.font = UIFont.systemFont(ofSize: 18)
         ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ingredientsLabel)
         
         ingredientsList = UITextView()
         ingredientsList.text = recipe.ingredients
-        ingredientsList.textColor = .lightGray
-        ingredientsList.backgroundColor = .black
+        ingredientsList.textColor = .black
+        ingredientsList.backgroundColor = .white
         ingredientsList.textAlignment = .left
         ingredientsList.isEditable = false
         ingredientsList.isSelectable = false
-        ingredientsList.font = UIFont.systemFont(ofSize: 18)
+        ingredientsList.font = UIFont.systemFont(ofSize: 14)
         ingredientsList.translatesAutoresizingMaskIntoConstraints = false
         ingredientsList.isScrollEnabled = true
         ingredientsList.showsVerticalScrollIndicator = true
@@ -95,18 +98,18 @@ class RecipePopUpViewController: UIViewController {
         
         stepsLabel = UILabel()
         stepsLabel.text = "Steps"
-        stepsLabel.textColor = .white
+        stepsLabel.textColor = .black
         stepsLabel.textAlignment = .left
-        stepsLabel.font = UIFont.systemFont(ofSize: 20)
+        stepsLabel.font = UIFont.systemFont(ofSize: 18)
         stepsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stepsLabel)
         
         stepsList = UITextView()
         stepsList.text = recipe.steps
-        stepsList.textColor = .lightGray
-        stepsList.backgroundColor = .black
+        stepsList.textColor = .black
+        stepsList.backgroundColor = .white
         stepsList.textAlignment = .left
-        stepsList.font = UIFont.systemFont(ofSize: 18)
+        stepsList.font = UIFont.systemFont(ofSize: 14)
         stepsList.translatesAutoresizingMaskIntoConstraints = false
         stepsList.isEditable = false
         stepsList.isSelectable = false
@@ -117,9 +120,12 @@ class RecipePopUpViewController: UIViewController {
         setUpConstraints()
     }
     
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        print("tap working")
+    }
+    
     func setUpConstraints() {
         let imageHeight: CGFloat = 180
-        let labelHeight: CGFloat = 30
         let bigbuffer: CGFloat = 10
         let smallbuffer: CGFloat = 3
         
@@ -134,28 +140,28 @@ class RecipePopUpViewController: UIViewController {
             recipeTitle.topAnchor.constraint(equalTo: image.bottomAnchor, constant: bigbuffer),
             recipeTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             recipeTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            recipeTitle.heightAnchor.constraint(equalToConstant: labelHeight)
+            recipeTitle.heightAnchor.constraint(equalToConstant: 21)
         ])
         
         NSLayoutConstraint.activate([
-            username.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: bigbuffer),
+            username.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: smallbuffer),
             username.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             username.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            username.heightAnchor.constraint(equalToConstant: labelHeight)
+            username.heightAnchor.constraint(equalToConstant: 19)
         ])
         
         NSLayoutConstraint.activate([
             shortDescription.topAnchor.constraint(equalTo: username.bottomAnchor, constant: smallbuffer),
-            shortDescription.bottomAnchor.constraint(equalTo: username.bottomAnchor, constant: 75),
+            shortDescription.heightAnchor.constraint(equalToConstant: 50),
             shortDescription.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             shortDescription.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
         ])
         
         NSLayoutConstraint.activate([
-            ingredientsLabel.topAnchor.constraint(equalTo: shortDescription.bottomAnchor, constant: smallbuffer),
+            ingredientsLabel.topAnchor.constraint(equalTo: shortDescription.bottomAnchor, constant: 12),
             ingredientsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             ingredientsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            ingredientsLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+            ingredientsLabel.heightAnchor.constraint(equalToConstant: 23.16)
         ])
         
         NSLayoutConstraint.activate([
@@ -169,7 +175,7 @@ class RecipePopUpViewController: UIViewController {
             stepsLabel.topAnchor.constraint(equalTo: ingredientsList.bottomAnchor, constant: smallbuffer),
             stepsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             stepsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            stepsLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+            stepsLabel.heightAnchor.constraint(equalToConstant: 21)
         ])
         
         NSLayoutConstraint.activate([
