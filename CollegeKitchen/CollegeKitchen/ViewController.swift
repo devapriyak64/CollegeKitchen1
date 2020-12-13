@@ -195,9 +195,20 @@ class ViewController: UIViewController {
     }
     @objc func showTrendingRecipes() {
         print("trending")
+        if trendingButton.titleLabel?.font == UIFont(name: "HelveticaNeue-Bold", size: 18.0) {
+            trendingButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18.0)
+        } else {
+            trendingButton.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+        }
+        
     }
     @objc func showFollowingRecipes() {
         print("following")
+        if followingButton.titleLabel?.font == UIFont(name: "HelveticaNeue-Bold", size: 18.0) {
+            followingButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18.0)
+        } else {
+            followingButton.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+        }
     }
 
 
@@ -257,6 +268,11 @@ extension ViewController: UICollectionViewDelegate {
             navigationController?.pushViewController(vc, animated: true)
         } else {
             print("filter pressed")
+            if filters[indexPath.row].didSelect == false {
+                filters[indexPath.row].didSelect = true
+            } else {
+                filters[indexPath.row].didSelect = false
+            }
         }
         recipeCollectionView.reloadData()
         filterCollectionView.reloadData()
