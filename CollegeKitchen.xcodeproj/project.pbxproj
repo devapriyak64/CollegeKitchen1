@@ -13,7 +13,7 @@
 		92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */; };
 		D70FBADF257C786C00C99655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBADE257C786C00C99655 /* AppDelegate.swift */; };
 		D70FBAE1257C786C00C99655 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAE0257C786C00C99655 /* SceneDelegate.swift */; };
-		D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAE2257C786C00C99655 /* ViewController.swift */; };
+		D70FBAE3257C786C00C99655 /* CollegeKitchen in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAE2257C786C00C99655 /* CollegeKitchen */; };
 		D70FBAE8257C786D00C99655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE7257C786D00C99655 /* Assets.xcassets */; };
 		D70FBAEB257C786D00C99655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */; };
 		D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */; };
@@ -30,7 +30,7 @@
 		D70FBADB257C786C00C99655 /* CollegeKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70FBADE257C786C00C99655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D70FBAE0257C786C00C99655 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D70FBAE2257C786C00C99655 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D70FBAE2257C786C00C99655 /* CollegeKitchen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CollegeKitchen; sourceTree = "<group>"; };
 		D70FBAE7257C786D00C99655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D70FBAEA257C786D00C99655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D70FBAEC257C786D00C99655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				D70FBADE257C786C00C99655 /* AppDelegate.swift */,
 				92DE1DDA257FEF3700AD9124 /* Filter.swift */,
 				D70FBAE0257C786C00C99655 /* SceneDelegate.swift */,
-				D70FBAE2257C786C00C99655 /* ViewController.swift */,
+				D70FBAE2257C786C00C99655 /* CollegeKitchen */,
 				92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */,
 				92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */,
 				D70FBAF7257C832200C99655 /* Recipe.swift */,
@@ -220,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */,
-				D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */,
+				D70FBAE3257C786C00C99655 /* CollegeKitchen in Sources */,
 				92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */,
 				D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */,
 				D70FBADF257C786C00C99655 /* AppDelegate.swift in Sources */,
