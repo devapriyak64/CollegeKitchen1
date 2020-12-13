@@ -8,7 +8,6 @@
 import UIKit
 import Foundation
 
-// TODO: need to change this to conform to networked information
 class Recipe {
     var image: UIImage
     var recipeTitle: String
