@@ -9,9 +9,6 @@ import UIKit
 
 class OtherProfileViewController: UIViewController {
 
-    // TODO: make sure this conforms to backend
-    // TODO: friends button that brings up list of friends
-    // TODO: add friend button adds this person to user's list of friends
     var user: User!
     var profilePicture: UIImageView!
     var bio: UITextView!
@@ -65,7 +62,7 @@ class OtherProfileViewController: UIViewController {
         
         friendsButton = UIButton()
         friendsButton.translatesAutoresizingMaskIntoConstraints = false
-        friendsButton.setTitle("Friends", for: .normal)
+        friendsButton.setTitle("Followers", for: .normal)
         friendsButton.setTitleColor(.black, for: .normal)
         friendsButton.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
         friendsButton.addTarget(self, action: #selector(pushFriends), for: .touchUpInside)
@@ -104,11 +101,12 @@ class OtherProfileViewController: UIViewController {
     }
 
     @objc func pushFriends() {
-        print("Friends pushed") // TODO: make this pull up a list of friends
+        let vc = FriendsViewController(user: user)
+            navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pushAddFriend() {
-        print("Add Friends pushed") // TODO: make this add user to friend list
+        print("Add Friends pushed") // TODO: make this add user to own friend list
     }
     
     func setupConstraints() {
@@ -180,8 +178,8 @@ extension OtherProfileViewController: UICollectionViewDelegateFlowLayout {
 
 extension OtherProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let recipe = user.user_posts[indexPath.row]
-            let vc = RecipePopUpViewController(recipe: recipe)
+            let post = user.user_posts[indexPath.row]
+        let vc = RecipePopUpViewController(post: post)
             navigationController?.pushViewController(vc, animated: true)
         recipeCollectionView.reloadData()
     }

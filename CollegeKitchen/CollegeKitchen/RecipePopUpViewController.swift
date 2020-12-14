@@ -9,21 +9,23 @@ import UIKit
 
 class RecipePopUpViewController: UIViewController {
     
-    // TODO: conform to networked Recipe
-    var recipe: Recipe
+    var post: Post
     var image: UIImageView!
-    // var filters: UICollectionView TODO (make these pink to match theme)
     var recipeTitle: UILabel!
-    var username: UILabel!
-    var shortDescription: UITextView!
+//    var username: UILabel!
+    var difficultyRating: UILabel!
+    var rating: UILabel!
+    var priceRating: UILabel!
     var ingredientsLabel: UILabel!
     var ingredientsList: UITextView!
     var stepsLabel: UILabel!
     var stepsList: UITextView!
-    // TODO: bottom navigation bar ??? does this make sense to have in all screens?
+    var commentsLabel: UILabel!
+    var comments: UITextView!
+    // TODO: do we want to have tags and bottom navigation buttons? seems unnecessary
     
-    init(recipe: Recipe) {
-        self.recipe = recipe
+    init(post: Post) {
+        self.post = post
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,44 +38,55 @@ class RecipePopUpViewController: UIViewController {
         view.backgroundColor = .white
         
         image = UIImageView()
-        image.image = recipe.image
+        image.image = UIImage(named: "food.jpeg") // TODO: this should be specific to each recipe (how do you get this?)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         view.addSubview(image)
         
         recipeTitle = UILabel()
-        recipeTitle.text = recipe.recipeTitle
+        recipeTitle.text = post.title
         recipeTitle.textColor = .black
         recipeTitle.textAlignment = .left
         recipeTitle.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         recipeTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recipeTitle)
         
-        username = UILabel()
-        username.text = recipe.username
-        username.textColor = .black
-        username.textAlignment = .left
-        username.font = UIFont.systemFont(ofSize: 16)
-        username.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(username)
+//        username = UILabel()
+//        username.text = String (post.poster_id)
+//        username.textColor = .black
+//        username.textAlignment = .left
+//        username.font = UIFont.systemFont(ofSize: 16)
+//        username.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(username)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(RecipePopUpViewController.tapFunction))
-                username.isUserInteractionEnabled = true
-                username.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(RecipePopUpViewController.tapFunction))
+//                username.isUserInteractionEnabled = true
+//                username.addGestureRecognizer(tap)
         
-        shortDescription = UITextView()
-        shortDescription.text = recipe.shortDescription
-        shortDescription.textColor = .black
-        shortDescription.backgroundColor = .white
-        shortDescription.textAlignment = .left
-        shortDescription.isEditable = false
-        shortDescription.isSelectable = false
-        shortDescription.font = UIFont.systemFont(ofSize: 14)
-        shortDescription.translatesAutoresizingMaskIntoConstraints = false
-        shortDescription.isScrollEnabled = true
-        shortDescription.showsVerticalScrollIndicator = true
-        view.addSubview(shortDescription)
+        difficultyRating = UILabel()
+        difficultyRating.text = "Difficulty: "+post.difficulty
+        difficultyRating.textColor = .black
+        difficultyRating.textAlignment = .right
+        difficultyRating.font = UIFont.systemFont(ofSize: 16)
+        difficultyRating.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(difficultyRating)
+        
+        rating = UILabel()
+        rating.text = "Rating: "+post.overall_rating
+        rating.textColor = .black
+        rating.textAlignment = .right
+        rating.font = UIFont.systemFont(ofSize: 16)
+        rating.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rating)
+        
+        priceRating = UILabel()
+        priceRating.text = post.price_rating
+        priceRating.textColor = .black
+        priceRating.textAlignment = .right
+        priceRating.font = UIFont.systemFont(ofSize: 16)
+        priceRating.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(priceRating)
         
         ingredientsLabel = UILabel()
         ingredientsLabel.text = "Ingredients"
@@ -84,7 +97,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(ingredientsLabel)
         
         ingredientsList = UITextView()
-        ingredientsList.text = recipe.ingredients
+        ingredientsList.text = post.ingredients
         ingredientsList.textColor = .black
         ingredientsList.backgroundColor = .white
         ingredientsList.textAlignment = .left
@@ -105,7 +118,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(stepsLabel)
         
         stepsList = UITextView()
-        stepsList.text = recipe.steps
+        stepsList.text = post.recipe
         stepsList.textColor = .black
         stepsList.backgroundColor = .white
         stepsList.textAlignment = .left
@@ -116,6 +129,27 @@ class RecipePopUpViewController: UIViewController {
         stepsList.isScrollEnabled = true
         stepsList.showsVerticalScrollIndicator = true
         view.addSubview(stepsList)
+        
+        commentsLabel = UILabel()
+        commentsLabel.text = "Comments"
+        commentsLabel.textColor = .black
+        commentsLabel.textAlignment = .left
+        commentsLabel.font = UIFont.systemFont(ofSize: 18)
+        commentsLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(commentsLabel)
+        
+        comments = UITextView()
+        comments.text = post.comments
+        comments.textColor = .black
+        comments.backgroundColor = .white
+        comments.textAlignment = .left
+        comments.font = UIFont.systemFont(ofSize: 14)
+        comments.translatesAutoresizingMaskIntoConstraints = false
+        comments.isEditable = false
+        comments.isSelectable = false
+        comments.isScrollEnabled = true
+        comments.showsVerticalScrollIndicator = true
+        view.addSubview(comments)
         
         setUpConstraints()
     }
@@ -143,22 +177,36 @@ class RecipePopUpViewController: UIViewController {
             recipeTitle.heightAnchor.constraint(equalToConstant: 21)
         ])
         
+//        NSLayoutConstraint.activate([
+//            username.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: smallbuffer),
+//            username.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+//            username.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -bigbuffer),
+//            username.heightAnchor.constraint(equalToConstant: 19)
+//        ])
+        
         NSLayoutConstraint.activate([
-            username.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: smallbuffer),
-            username.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            username.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            username.heightAnchor.constraint(equalToConstant: 19)
+            difficultyRating.topAnchor.constraint(equalTo: recipeTitle.topAnchor),
+            difficultyRating.leadingAnchor.constraint(equalTo: view.centerXAnchor),
+            difficultyRating.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            difficultyRating.heightAnchor.constraint(equalToConstant: 19)
         ])
         
         NSLayoutConstraint.activate([
-            shortDescription.topAnchor.constraint(equalTo: username.bottomAnchor, constant: smallbuffer),
-            shortDescription.heightAnchor.constraint(equalToConstant: 50),
-            shortDescription.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            shortDescription.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
+            rating.topAnchor.constraint(equalTo: difficultyRating.bottomAnchor),
+            rating.leadingAnchor.constraint(equalTo: view.centerXAnchor),
+            rating.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            rating.heightAnchor.constraint(equalToConstant: 19)
         ])
         
         NSLayoutConstraint.activate([
-            ingredientsLabel.topAnchor.constraint(equalTo: shortDescription.bottomAnchor, constant: 12),
+            priceRating.topAnchor.constraint(equalTo: rating.bottomAnchor),
+            priceRating.leadingAnchor.constraint(equalTo: view.centerXAnchor),
+            priceRating.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            priceRating.heightAnchor.constraint(equalToConstant: 19)
+        ])
+        
+        NSLayoutConstraint.activate([
+            ingredientsLabel.topAnchor.constraint(equalTo: recipeTitle.bottomAnchor, constant: 12),
             ingredientsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             ingredientsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
             ingredientsLabel.heightAnchor.constraint(equalToConstant: 23.16)
@@ -180,9 +228,23 @@ class RecipePopUpViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             stepsList.topAnchor.constraint(equalTo: stepsLabel.bottomAnchor, constant: smallbuffer),
-            stepsList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            stepsList.heightAnchor.constraint(equalToConstant: 125),
             stepsList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             stepsList.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
+        ])
+        
+        NSLayoutConstraint.activate([
+            commentsLabel.topAnchor.constraint(equalTo: stepsList.bottomAnchor, constant: smallbuffer),
+            commentsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            commentsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            commentsLabel.heightAnchor.constraint(equalToConstant: 21)
+        ])
+        
+        NSLayoutConstraint.activate([
+            comments.topAnchor.constraint(equalTo: commentsLabel.bottomAnchor, constant: smallbuffer),
+            comments.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: bigbuffer),
+            comments.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            comments.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
         ])
         
     }

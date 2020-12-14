@@ -8,14 +8,16 @@
 import UIKit
 
 class AddRecipeViewController: UIViewController {
-
+    // overall rating automatically can be 3
+    // TODO: tags
     // TODO: make fields actually create new recipe (networking)
     var image: UIImageView!
     var nameLabel: UILabel!
     var nameField: UITextField!
-    // TODO: filters
-    var descriptionLabel: UILabel!
-    var descriptionField: UITextField!
+    var priceLabel: UILabel!
+    var priceField: UITextField!
+    var difficultyLabel: UILabel!
+    var difficultyField: UITextField!
     var ingredientsLabel: UILabel!
     var ingredientsField: UITextField!
     var stepsLabel: UILabel!
@@ -54,25 +56,45 @@ class AddRecipeViewController: UIViewController {
         nameField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameField)
         
-        descriptionLabel = UILabel()
-        descriptionLabel.text = "Write a short description"
-        descriptionLabel.textColor = .black
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.font = UIFont.systemFont(ofSize: 18)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(descriptionLabel)
+        priceLabel = UILabel()
+        priceLabel.text = "Price ($ - $$$)"
+        priceLabel.textColor = .black
+        priceLabel.textAlignment = .left
+        priceLabel.font = UIFont.systemFont(ofSize: 18)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(priceLabel)
         
-        descriptionField = UITextField()
-        descriptionField.text = "  Start typing..."
-        descriptionField.layer.cornerRadius = 15.0
-        descriptionField.layer.borderColor = UIColor.black.cgColor
-        descriptionField.layer.borderWidth = 1
-        descriptionField.backgroundColor = .white
-        descriptionField.textColor = .lightGray
-        descriptionField.textAlignment = .left
-        descriptionField.clearsOnBeginEditing = true
-        descriptionField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(descriptionField)
+        priceField = UITextField()
+        priceField.text = "  Start typing..."
+        priceField.layer.cornerRadius = 15.0
+        priceField.layer.borderColor = UIColor.black.cgColor
+        priceField.layer.borderWidth = 1
+        priceField.backgroundColor = .white
+        priceField.textColor = .lightGray
+        priceField.textAlignment = .left
+        priceField.clearsOnBeginEditing = true
+        priceField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(priceField)
+        
+        difficultyLabel = UILabel()
+        difficultyLabel.text = "Difficulty"
+        difficultyLabel.textColor = .black
+        difficultyLabel.textAlignment = .left
+        difficultyLabel.font = UIFont.systemFont(ofSize: 18)
+        difficultyLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(difficultyLabel)
+        
+        difficultyField = UITextField()
+        difficultyField.text = "  Start typing..."
+        difficultyField.layer.cornerRadius = 15.0
+        difficultyField.layer.borderColor = UIColor.black.cgColor
+        difficultyField.layer.borderWidth = 1
+        difficultyField.backgroundColor = .white
+        difficultyField.textColor = .lightGray
+        difficultyField.textAlignment = .left
+        difficultyField.clearsOnBeginEditing = true
+        difficultyField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(difficultyField)
         
         ingredientsLabel = UILabel()
         ingredientsLabel.text = "List the ingredients"
@@ -155,20 +177,34 @@ class AddRecipeViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo:nameField.bottomAnchor, constant: bigbuffer), descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+            priceLabel.topAnchor.constraint(equalTo:nameField.bottomAnchor, constant: bigbuffer), priceLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            priceLabel.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -smallbuffer),
+            priceLabel.heightAnchor.constraint(equalToConstant: labelHeight)
         ])
         
         NSLayoutConstraint.activate([
-            descriptionField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: smallbuffer),
-            descriptionField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            descriptionField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            descriptionField.heightAnchor.constraint(equalToConstant: fieldHeight)
+            priceField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: smallbuffer),
+            priceField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
+            priceField.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -smallbuffer),
+            priceField.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NSLayoutConstraint.activate([
-            ingredientsLabel.topAnchor.constraint(equalTo: descriptionField.bottomAnchor, constant: smallbuffer),
+            difficultyLabel.topAnchor.constraint(equalTo:nameField.bottomAnchor, constant: bigbuffer),
+            difficultyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: smallbuffer),
+            difficultyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
+            difficultyLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
+            difficultyField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: smallbuffer),
+            difficultyField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: smallbuffer),
+            difficultyField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -smallbuffer),
+            difficultyField.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            ingredientsLabel.topAnchor.constraint(equalTo: priceField.bottomAnchor, constant: smallbuffer),
             ingredientsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             ingredientsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: bigbuffer),
             ingredientsLabel.heightAnchor.constraint(equalToConstant: labelHeight)

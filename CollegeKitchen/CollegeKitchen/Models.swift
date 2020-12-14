@@ -5,6 +5,7 @@
 //  Created by Vian Nguyen on 12/13/20.
 //
 
+import UIKit
 import Foundation
 
 struct Post: Codable {
@@ -37,13 +38,13 @@ struct Response<T:Codable>: Codable {
     
 }
 
-//struct User {
-//    var user_id: String
-//    var username: String
-//    var password: String
-//    var user_pic: UIImage
-//    var user_bio: String
-//    var user_posts: [Recipe]
-//    var followers: [User]
-//    var following: [User]
-//}
+struct User {
+    var user_id: String
+    var username: String
+    var password: String
+    var user_pic: UIImage
+    var user_bio: String
+    var user_posts: [Post]
+    var followers: [User]
+    var following: [User] //TODO: combine these into a friends list?
+}

@@ -9,8 +9,6 @@ import UIKit
 
 class PersonalProfileViewController: UIViewController {
     
-    // TODO: make sure this conforms to backend
-    // TODO: friends button that brings up list of friends
     var user: User!
     var profilePicture: UIImageView!
     var bio: UITextView!
@@ -63,7 +61,7 @@ class PersonalProfileViewController: UIViewController {
         
         friendsButton = UIButton()
         friendsButton.translatesAutoresizingMaskIntoConstraints = false
-        friendsButton.setTitle("Your Friends", for: .normal)
+        friendsButton.setTitle("Followers", for: .normal)
         friendsButton.setTitleColor(.black, for: .normal)
         friendsButton.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
         friendsButton.addTarget(self, action: #selector(pushFriends), for: .touchUpInside)
@@ -91,7 +89,8 @@ class PersonalProfileViewController: UIViewController {
     }
 
     @objc func pushFriends() {
-        print("Friends pushed") // TODO: make this pull up a list of friends
+        let vc = FriendsViewController(user: user)
+            navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupConstraints() {
@@ -155,8 +154,8 @@ extension PersonalProfileViewController: UICollectionViewDelegateFlowLayout {
 
 extension PersonalProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let recipe = user.user_posts[indexPath.row]
-            let vc = RecipePopUpViewController(recipe: recipe)
+            let post = user.user_posts[indexPath.row]
+            let vc = RecipePopUpViewController(post: post)
             navigationController?.pushViewController(vc, animated: true)
         recipeCollectionView.reloadData()
     }

@@ -19,11 +19,11 @@
 		D70FBAE8257C786D00C99655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE7257C786D00C99655 /* Assets.xcassets */; };
 		D70FBAEB257C786D00C99655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */; };
 		D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */; };
-		D70FBAF8257C832200C99655 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FBAF7257C832200C99655 /* Recipe.swift */; };
 		D714457925800EA900BC3F29 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D714457825800EA900BC3F29 /* AddRecipeViewController.swift */; };
 		D792F5D825855E9E005CBB3F /* PersonalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792F5D725855E9E005CBB3F /* PersonalProfileViewController.swift */; };
-		D792F5DB2585687B005CBB3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792F5DA2585687B005CBB3F /* User.swift */; };
 		D792F5DE25858925005CBB3F /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792F5DD25858925005CBB3F /* OtherProfileViewController.swift */; };
+		D7D4D9502586A4070048B789 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4D94F2586A4070048B789 /* FriendsViewController.swift */; };
+		D7D4D9532586A5EC0048B789 /* FriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4D9522586A5EC0048B789 /* FriendsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,11 +42,11 @@
 		D70FBAEA257C786D00C99655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D70FBAEC257C786D00C99655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePopUpViewController.swift; sourceTree = "<group>"; };
-		D70FBAF7257C832200C99655 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		D714457825800EA900BC3F29 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D792F5D725855E9E005CBB3F /* PersonalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileViewController.swift; sourceTree = "<group>"; };
-		D792F5DA2585687B005CBB3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D792F5DD25858925005CBB3F /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
+		D7D4D94F2586A4070048B789 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		D7D4D9522586A5EC0048B789 /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF7C5AE191C6669F1C7AEF18 /* Pods-CollegeKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeKitchen.debug.xcconfig"; path = "Target Support Files/Pods-CollegeKitchen/Pods-CollegeKitchen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,16 +104,16 @@
 				92DE1DDA257FEF3700AD9124 /* Filter.swift */,
 				D70FBAE0257C786C00C99655 /* SceneDelegate.swift */,
 				D70FBAE2257C786C00C99655 /* ViewController.swift */,
-				D792F5DA2585687B005CBB3F /* User.swift */,
 				92DE1DDE257FEFAA00AD9124 /* FilterCollectionViewCell.swift */,
 				92DE1DDD257FEFAA00AD9124 /* RecipeCollectionViewCell.swift */,
-				D70FBAF7257C832200C99655 /* Recipe.swift */,
+				D7D4D9522586A5EC0048B789 /* FriendsCollectionViewCell.swift */,
 				D70FBAF4257C7D4B00C99655 /* RecipePopUpViewController.swift */,
 				D792F5DD25858925005CBB3F /* OtherProfileViewController.swift */,
 				D714457825800EA900BC3F29 /* AddRecipeViewController.swift */,
 				D792F5D725855E9E005CBB3F /* PersonalProfileViewController.swift */,
 				92B9736925867BFD003EFA1F /* NetworkManager.swift */,
 				92B9736C25867D4B003EFA1F /* Models.swift */,
+				D7D4D94F2586A4070048B789 /* FriendsViewController.swift */,
 				D70FBAE7257C786D00C99655 /* Assets.xcassets */,
 				D70FBAE9257C786D00C99655 /* LaunchScreen.storyboard */,
 				D70FBAEC257C786D00C99655 /* Info.plist */,
@@ -238,16 +238,16 @@
 				D70FBAE3257C786C00C99655 /* ViewController.swift in Sources */,
 				92DE1DDB257FEF3700AD9124 /* Filter.swift in Sources */,
 				D70FBAF5257C7D4B00C99655 /* RecipePopUpViewController.swift in Sources */,
+				D7D4D9502586A4070048B789 /* FriendsViewController.swift in Sources */,
 				D70FBADF257C786C00C99655 /* AppDelegate.swift in Sources */,
 				92DE1DDF257FEFAB00AD9124 /* RecipeCollectionViewCell.swift in Sources */,
+				D7D4D9532586A5EC0048B789 /* FriendsCollectionViewCell.swift in Sources */,
 				D792F5D825855E9E005CBB3F /* PersonalProfileViewController.swift in Sources */,
 				D70FBAE1257C786C00C99655 /* SceneDelegate.swift in Sources */,
 				92DE1DE0257FEFAB00AD9124 /* FilterCollectionViewCell.swift in Sources */,
 				92B9736D25867D4B003EFA1F /* Models.swift in Sources */,
-				D70FBAF8257C832200C99655 /* Recipe.swift in Sources */,
 				92B9736A25867BFD003EFA1F /* NetworkManager.swift in Sources */,
 				D792F5DE25858925005CBB3F /* OtherProfileViewController.swift in Sources */,
-				D792F5DB2585687B005CBB3F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
