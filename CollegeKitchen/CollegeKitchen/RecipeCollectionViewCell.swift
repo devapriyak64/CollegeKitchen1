@@ -6,16 +6,36 @@
 //
 
 import UIKit
+import SnapKit
 
 class RecipeCollectionViewCell: UICollectionViewCell {
+    
+    var postLabel: UILabel!
+    var ratingLabel: UILabel!
+    
+    //var tagsCollectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .darkGray
+        contentView.backgroundColor = .lightGray
+        
+        postLabel = UILabel()
+        postLabel.translatesAutoresizingMaskIntoConstraints = false
+        postLabel.font =  UIFont(name: "HelveticaNeue-Medium", size: 20)
+        contentView.addSubview(postLabel)
+        
+        ratingLabel = UILabel()
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.font = ratingLabel.font.withSize(15)
+        contentView.addSubview(ratingLabel)
+        
+        setupConstraints()
     }
-    func configure() {
+    func configure(post: Post) {
         //print("Configuring RecipeCollectionViewCell")
+        postLabel.text = post.title
+        ratingLabel.text = post.overall_rating
         addShadow()
     }
     func addShadow() {
@@ -30,6 +50,21 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.9
         self.layer.masksToBounds = false
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+    }
+    
+    func setupConstraints() {
+        
+        postLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-50)
+        }
+        
+        ratingLabel.snp.makeConstraints { make in
+            make.top.equalTo(postLabel.snp.top)
+            make.leading.equalTo(postLabel.snp.trailing)
+        }
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
