@@ -8,6 +8,12 @@
 import UIKit
 import Foundation
 
+struct Photo: Codable {
+    var image_id: Int
+    var img_type: String
+    var type_id: Int
+    var url: String
+}
 struct Post: Codable {
     var post_id: Int
     var title: String
@@ -15,12 +21,13 @@ struct Post: Codable {
     var ingredients: String
     var recipe: String
     var recipeTime: Int
-    var difficultyRating: String
+    var difficultyRating: Int
     var overallRating: Int
-    var priceRating: String
-    var user_di: Int
+    var priceRating: Int
+    var user_id: Int
     var comments: [String]
-    var photos: [String]
+    var tags: [String]
+    var photos: [Photo]
 }
 struct Tag {
     var tag_id: Int
@@ -36,7 +43,7 @@ struct PostResponse: Codable {
 struct Response<T:Codable>: Codable { 
     
     var success: Bool
-    var data: T
+    var data: [Post]
     
 }
 

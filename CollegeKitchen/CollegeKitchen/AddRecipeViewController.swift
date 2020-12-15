@@ -10,7 +10,7 @@ import UIKit
 class AddRecipeViewController: UIViewController {
     // overall rating automatically can be 3
     // TODO: tags
-    // TODO (NETWORKING): make fields actually create new recipe
+    // TODO (NETWORKING): make fields actually create new recipe (tags can be empty)
     var image: UIImageView!
     var nameLabel: UILabel!
     var nameField: UITextField!

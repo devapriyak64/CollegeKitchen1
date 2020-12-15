@@ -30,7 +30,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: networked posts should display
         filters = [Filter(name: "$"), Filter(name: "$$"), Filter(name: "$$$"), Filter(name: "Easy"), Filter(name: "Medium"), Filter(name: "Difficult")]
 
         view.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
@@ -161,6 +160,9 @@ class ViewController: UIViewController {
     func getPosts() {
         NetworkManager.getAllPosts { posts in
             self.posts = posts
+            DispatchQueue.main.async {
+                  self.recipeCollectionView.reloadData()
+                }
         }
     }
     

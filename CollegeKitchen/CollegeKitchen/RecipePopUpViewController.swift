@@ -81,7 +81,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(rating)
         
         priceRating = UILabel()
-        priceRating.text = post.priceRating
+        priceRating.text = String (post.priceRating)
         priceRating.textColor = .black
         priceRating.textAlignment = .right
         priceRating.font = UIFont.systemFont(ofSize: 16)
@@ -130,26 +130,6 @@ class RecipePopUpViewController: UIViewController {
         stepsList.showsVerticalScrollIndicator = true
         view.addSubview(stepsList)
         
-        commentsLabel = UILabel()
-        commentsLabel.text = "Comments"
-        commentsLabel.textColor = .black
-        commentsLabel.textAlignment = .left
-        commentsLabel.font = UIFont.systemFont(ofSize: 18)
-        commentsLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(commentsLabel)
-        
-        comments = UITextView()
-        comments.text = post.comments.joined(separator:"\n")
-        comments.textColor = .black
-        comments.backgroundColor = .white
-        comments.textAlignment = .left
-        comments.font = UIFont.systemFont(ofSize: 14)
-        comments.translatesAutoresizingMaskIntoConstraints = false
-        comments.isEditable = false
-        comments.isSelectable = false
-        comments.isScrollEnabled = true
-        comments.showsVerticalScrollIndicator = true
-        view.addSubview(comments)
         
         setUpConstraints()
     }
@@ -228,23 +208,9 @@ class RecipePopUpViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             stepsList.topAnchor.constraint(equalTo: stepsLabel.bottomAnchor, constant: smallbuffer),
-            stepsList.heightAnchor.constraint(equalToConstant: 125),
+            stepsList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bigbuffer),
             stepsList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
             stepsList.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
-        ])
-        
-        NSLayoutConstraint.activate([
-            commentsLabel.topAnchor.constraint(equalTo: stepsList.bottomAnchor, constant: smallbuffer),
-            commentsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            commentsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer),
-            commentsLabel.heightAnchor.constraint(equalToConstant: 21)
-        ])
-        
-        NSLayoutConstraint.activate([
-            comments.topAnchor.constraint(equalTo: commentsLabel.bottomAnchor, constant: smallbuffer),
-            comments.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: bigbuffer),
-            comments.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigbuffer),
-            comments.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -bigbuffer)
         ])
         
     }
