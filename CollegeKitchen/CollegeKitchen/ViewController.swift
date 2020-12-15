@@ -25,20 +25,12 @@ class ViewController: UIViewController {
     var trendingButton: UIButton!
     var followingButton: UIButton!
     
-    var posts: [Post]!
+    var posts = [Post]()
     var filters: [Filter]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // TODO: Hard coded recipes are temporary, this should be replaced by networked recipes later
-        
-        let example = Post(post_id: 0, poster_id: 0, title: "Pesto Pasta", overall_rating: "5 Stars", price_rating: "$$", difficulty: "Medium", tags: "$$ Medium", ingredients: "- Onion\n- Pesto\n- Olive Oil\n- Ziti\n- Parmesan\n- Salt\n- Pepper", recipe:  "1. Bring a pot of lightly salted water to a rolling boil; cook the fettuccini at a boil until cooked through yet firm to the bite, about 8 minutes; drain. Transfer the fettuccini to a bowl.\n2. Melt the butter in a saucepan over medium heat. Cook the garlic and pesto in the melted butter until warmed, 2 to 3 minutes; pour over the fettuccini and toss to coat.\n3. Season to taste using salt and pepper.", comments: "Easy, quick dinner for the family! Would make again. ")
-//        let pestopasta = Recipe(image: UIImage(named: "pestopasta.jpg")!, recipeTitle: "Pesto Pasta", username: "Jeremy Scheck", shortDescription: "Anyone can make a Pesto Pasta, but not everyone knows how to make a pesto pasta that’s slick with plenty of pesto sauce without adding tons of extra oil! Here’s how I make it.", ingredients: "- Onion\n- Pesto\n- Olive Oil\n- Ziti\n- Parmesan\n- Salt\n- Pepper", steps: "1. Bring a pot of lightly salted water to a rolling boil; cook the fettuccini at a boil until cooked through yet firm to the bite, about 8 minutes; drain. Transfer the fettuccini to a bowl.\n2. Melt the butter in a saucepan over medium heat. Cook the garlic and pesto in the melted butter until warmed, 2 to 3 minutes; pour over the fettuccini and toss to coat.\n3. Season to taste using salt and pepper.")
-//        let oatmeal = Recipe(image: UIImage(named: "oatmeal.jpg")!, recipeTitle: "Overnight Oats", username: "Walker White", shortDescription: "Overnight oats are a simple no-cook way of making oatmeal by soaking oats in milk for several hours (usually overnight). You can either eat them cold straight from the jar, or heat them up to achieve something similar to freshly cooked oatmeal.", ingredients: "- Rolled Oats\n- Milk of your choice\n- Fruit, Raisins, Yogurt, etc.", steps: "1. Take a glass or a bowl and add a serving of old fashioned rolled oats.\n2. Fill up the glass with liquid until the oats are well covered.\n3. Add your favorite toppings.")
-//        let guac = Recipe(image: UIImage(named: "guac.jpeg")!, recipeTitle: "Dorm Room Guac", username: "Gordon Ramsay", shortDescription: "Make a bowl of guac in less than 10 minutes with items you probably already have in your dorm room!", ingredients: "- Avocado\n- Salt\n- Pepper\n- Lime Juice\n- Tomato", steps: "1. Scoop out the inside of the avocado and chop until smooth.\n2. Add salt, pepper, and lime juice.\n4. Chop tomato into small pieces and add to mixture.\n4. Mix with a spoon and serve!")
-//        recipes = [pestopasta, oatmeal, guac]
-        posts = [example]
+        // TODO: networked posts should display
         filters = [Filter(name: "$"), Filter(name: "$$"), Filter(name: "$$$"), Filter(name: "Easy"), Filter(name: "Medium"), Filter(name: "Difficult")]
 
         view.backgroundColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00)
@@ -122,7 +114,7 @@ class ViewController: UIViewController {
 
 
         setupConstraints()
-//        getPosts()
+        getPosts()
 
     }
     
@@ -166,11 +158,11 @@ class ViewController: UIViewController {
         }
     }
     
-//    func getPosts() {
-//        NetworkManager.getAllPosts { posts in
-//            self.posts = posts
-//        }
-//    }
+    func getPosts() {
+        NetworkManager.getAllPosts { posts in
+            self.posts = posts
+        }
+    }
     
     func resetButtons() {
         navigationController?.navigationBar.barTintColor = UIColor.lightGray
@@ -200,8 +192,7 @@ class ViewController: UIViewController {
         let profileButtonImage = UIImage(named: "profile_white")
         profileButton.setImage(profileButtonImage , for: .normal)
         // temporary user, will be replaced by networked information
-        let example = Post(post_id: 0, poster_id: 0, title: "Pesto Pasta", overall_rating: "5 Stars", price_rating: "$$", difficulty: "Medium", tags: "$$ Medium", ingredients: "- Onion\n- Pesto\n- Olive Oil\n- Ziti\n- Parmesan\n- Salt\n- Pepper", recipe:  "1. Bring a pot of lightly salted water to a rolling boil; cook the fettuccini at a boil until cooked through yet firm to the bite, about 8 minutes; drain. Transfer the fettuccini to a bowl.\n2. Melt the butter in a saucepan over medium heat. Cook the garlic and pesto in the melted butter until warmed, 2 to 3 minutes; pour over the fettuccini and toss to coat.\n3. Season to taste using salt and pepper.", comments: "Easy, quick dinner for the family! Would make again. ")
-        let user0 = User(user_id: "11", username: "Walker White", password: "cat", user_pic: UIImage(named: "walker.jpeg")!, user_bio: "Chef on the weekend.", user_posts: [example], followers: [], following: [])
+        let user0 = User(user_id: "11", username: "Walker White", password: "cat", user_pic: UIImage(named: "walker.jpeg")!, user_bio: "Chef on the weekend.", user_posts: [], followers: [], following: [])
         let user1 = User(user_id: "123", username: "gordonramsey", password: "password", user_pic: UIImage(named: "gordon.jpeg")!, user_bio: "Multi-Michelin starred chef. Star of the small screen. Owner of successful restaurants across the globe.", user_posts: [], followers: [user0], following: [])
         let vc = PersonalProfileViewController(user: user1)
         navigationController?.pushViewController(vc, animated: true)

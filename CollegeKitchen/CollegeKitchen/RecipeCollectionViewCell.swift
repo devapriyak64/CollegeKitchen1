@@ -35,7 +35,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     func configure(post: Post) {
         //print("Configuring RecipeCollectionViewCell")
         postLabel.text = post.title
-        ratingLabel.text = post.overall_rating
+        ratingLabel.text = String (post.overallRating)
         addShadow()
     }
     func addShadow() {

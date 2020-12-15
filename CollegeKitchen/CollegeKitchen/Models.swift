@@ -10,15 +10,17 @@ import Foundation
 
 struct Post: Codable {
     var post_id: Int
-    var poster_id: Int
     var title: String
-    var overall_rating: String
-    var price_rating: String
-    var difficulty: String
-    var tags: String
+    var dateTime: String
     var ingredients: String
     var recipe: String
-    var comments: String
+    var recipeTime: Int
+    var difficultyRating: String
+    var overallRating: Int
+    var priceRating: String
+    var user_di: Int
+    var comments: [String]
+    var photos: [String]
 }
 struct Tag {
     var tag_id: Int
@@ -46,5 +48,5 @@ struct User {
     var user_bio: String
     var user_posts: [Post]
     var followers: [User]
-    var following: [User] //TODO: combine these into a friends list?
+    var following: [User]
 }

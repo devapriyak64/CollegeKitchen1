@@ -38,7 +38,7 @@ class RecipePopUpViewController: UIViewController {
         view.backgroundColor = .white
         
         image = UIImageView()
-        image.image = UIImage(named: "food.jpeg") // TODO: this should be specific to each recipe (how do you get this?)
+        image.image = UIImage(named: "food.jpeg") // TODO (NETWORKING): this should be specific to each recipe (how do you get this?)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -65,7 +65,7 @@ class RecipePopUpViewController: UIViewController {
 //                username.addGestureRecognizer(tap)
         
         difficultyRating = UILabel()
-        difficultyRating.text = "Difficulty: "+post.difficulty
+        difficultyRating.text = "Difficulty: " + String (post.difficultyRating)
         difficultyRating.textColor = .black
         difficultyRating.textAlignment = .right
         difficultyRating.font = UIFont.systemFont(ofSize: 16)
@@ -73,7 +73,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(difficultyRating)
         
         rating = UILabel()
-        rating.text = "Rating: "+post.overall_rating
+        rating.text = "Rating: " + String (post.overallRating)
         rating.textColor = .black
         rating.textAlignment = .right
         rating.font = UIFont.systemFont(ofSize: 16)
@@ -81,7 +81,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(rating)
         
         priceRating = UILabel()
-        priceRating.text = post.price_rating
+        priceRating.text = post.priceRating
         priceRating.textColor = .black
         priceRating.textAlignment = .right
         priceRating.font = UIFont.systemFont(ofSize: 16)
@@ -139,7 +139,7 @@ class RecipePopUpViewController: UIViewController {
         view.addSubview(commentsLabel)
         
         comments = UITextView()
-        comments.text = post.comments
+        comments.text = post.comments.joined(separator:"\n")
         comments.textColor = .black
         comments.backgroundColor = .white
         comments.textAlignment = .left

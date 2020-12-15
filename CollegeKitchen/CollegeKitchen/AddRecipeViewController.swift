@@ -10,7 +10,7 @@ import UIKit
 class AddRecipeViewController: UIViewController {
     // overall rating automatically can be 3
     // TODO: tags
-    // TODO: make fields actually create new recipe (networking)
+    // TODO (NETWORKING): make fields actually create new recipe
     var image: UIImageView!
     var nameLabel: UILabel!
     var nameField: UITextField!
@@ -29,7 +29,7 @@ class AddRecipeViewController: UIViewController {
         view.backgroundColor = .white
         
         image = UIImageView()
-        // TODO: change this picture to a upload picture field
+        // TODO (NETWORKING): change this picture to a upload picture field
         image.image = UIImage(named: "food.jpeg")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
