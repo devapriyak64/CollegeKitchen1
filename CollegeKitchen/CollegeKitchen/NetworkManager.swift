@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManager {
 
-    private static let endpoint = ""
+    private static let endpoint = "http://collegekitchenapp.herokuapp.com"
     
     static func getAllPosts(completion: @escaping ([Post]) -> Void) {
         let newEndpoint = endpoint + "/posts/"

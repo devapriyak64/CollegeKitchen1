@@ -122,7 +122,7 @@ class ViewController: UIViewController {
 
 
         setupConstraints()
-//        getPosts()
+        getPosts()
 
     }
     
@@ -166,11 +166,12 @@ class ViewController: UIViewController {
         }
     }
     
-//    func getPosts() {
-//        NetworkManager.getAllPosts { posts in
-//            self.posts = posts
-//        }
-//    }
+    func getPosts() {
+        NetworkManager.getAllPosts { posts in
+            print(posts)
+            self.posts = posts
+        }
+    }
     
     func resetButtons() {
         navigationController?.navigationBar.barTintColor = UIColor.lightGray
