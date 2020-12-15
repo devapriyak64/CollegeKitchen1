@@ -11,6 +11,8 @@ class AddRecipeViewController: UIViewController {
     // overall rating automatically can be 3
     // TODO: tags
     // TODO (NETWORKING): make fields actually create new recipe (tags can be empty)
+    
+    weak var delegate: SaveNewRecipeDelegate?
     var image: UIImageView!
     var nameLabel: UILabel!
     var nameField: UITextField!
@@ -23,6 +25,17 @@ class AddRecipeViewController: UIViewController {
     var stepsLabel: UILabel!
     var stepsField: UITextField!
     var submitButton: UIButton!
+    var recipe: Post
+    
+    init(delegate: SaveNewRecipeDelegate?, recipe: Post) {
+        self.recipe = recipe
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +70,7 @@ class AddRecipeViewController: UIViewController {
         view.addSubview(nameField)
         
         priceLabel = UILabel()
-        priceLabel.text = "Price ($ - $$$)"
+        priceLabel.text = "Price (0 - 5)"
         priceLabel.textColor = .black
         priceLabel.textAlignment = .left
         priceLabel.font = UIFont.systemFont(ofSize: 18)
@@ -77,7 +90,7 @@ class AddRecipeViewController: UIViewController {
         view.addSubview(priceField)
         
         difficultyLabel = UILabel()
-        difficultyLabel.text = "Difficulty"
+        difficultyLabel.text = "Difficulty (0 - 5)"
         difficultyLabel.textColor = .black
         difficultyLabel.textAlignment = .left
         difficultyLabel.font = UIFont.systemFont(ofSize: 18)
@@ -144,6 +157,7 @@ class AddRecipeViewController: UIViewController {
         submitButton.layer.borderColor = UIColor(red: 1.00, green: 0.47, blue: 0.47, alpha: 1.00).cgColor
         submitButton.layer.borderWidth = 1
         submitButton.layer.cornerRadius = 15.0
+        submitButton.addTarget(self, action: #selector(saveRecipe), for: .touchUpInside)
         view.addSubview(submitButton)
         
         setUpConstraints()
@@ -236,6 +250,18 @@ class AddRecipeViewController: UIViewController {
             submitButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             submitButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    @objc func saveRecipe() {
+        if let title = nameField.text, let price = Int (priceField.text!), let difficulty = Int (difficultyField.text!), let ingredients = ingredientsField.text, let steps = stepsField.text {
+            recipe.title = title
+            recipe.priceRating = price
+            recipe.difficultyRating = difficulty
+            recipe.ingredients = ingredients
+            recipe.recipe = steps
+            delegate?.saveNewRecipe(post: recipe)
+        }
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

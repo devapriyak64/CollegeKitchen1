@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol SaveNewRecipeDelegate: class {
+    func saveNewRecipe(post: Post)
+}
+
 class ViewController: UIViewController {
 
     var recipeCollectionView: UICollectionView!
@@ -180,7 +184,7 @@ class ViewController: UIViewController {
         resetButtons()
         let addRecipeButtonImage = UIImage(named: "plus_white")
         addRecipeButton.setImage(addRecipeButtonImage , for: .normal)
-        let vc = AddRecipeViewController()
+        let vc = AddRecipeViewController(delegate: self, recipe: posts[0])
         // vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -283,7 +287,14 @@ extension ViewController: UICollectionViewDelegate {
         recipeCollectionView.reloadData()
         filterCollectionView.reloadData()
     }
+}
+
     
+extension ViewController: SaveNewRecipeDelegate {
+        func saveNewRecipe(post: Post) {
+            posts[0] = post
+            recipeCollectionView.reloadData()
+    }
 
 }
 
