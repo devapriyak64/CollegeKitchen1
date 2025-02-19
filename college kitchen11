@@ -1,0 +1,20 @@
+Imports System.Data.SqlClient
+
+Public Class KitchenForm
+    Dim conn As New SqlConnection("Data Source=YOUR_SERVER_NAME;Initial Catalog=CollegeKitchen;Integrated Security=True")
+    
+    Private Sub btnAddMenuItem_Click(sender As Object, e As EventArgs) Handles btnAddMenuItem.Click
+        Try
+            conn.Open()
+            Dim cmd As New SqlCommand("INSERT INTO MenuItems (ItemName, Price) VALUES (@ItemName, @Price)", conn)
+            cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text)
+            cmd.Parameters.AddWithValue("@Price", Decimal.Parse(txtPrice.Text))
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("Item added!")
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+End Class
